@@ -1,0 +1,335 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+:root{
+    --black:#171321;
+    --dkblue: #0d314b;
+    --plum: #4b0d49;
+    --hotmag:#ff17e4;
+    --magenta:#e310cb;
+    --aqua:#86fbfb;
+    --white:#f7f8fa;
+    --nice-blue:#012E40;
+    --font-size:1.3rem;
+    --mono:"Oxygen mono", monospace;
+    --sans: Oxygen, sans-serif;
+}
+html{
+    box-sizing: border-box;
+}
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: var(--sans);
+    background-color:  var(--black);
+    color: var(--white);
+    font-size: var(--font-size);
+    font-family: 'PT Sans', sans-serif;
+}
+.button, .none{
+    background-color: var(--magenta);
+    padding: 0.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.button:hover{
+    color: var(--white);
+    background-color: var(--hotmag);
+}
+
+a{
+    color: var(--magenta);
+}
+a:hover{
+    color: var(--hotmag);
+    text-decoration: none;
+    cursor: pointer;
+}
+img{
+    width: 100%;
+    height: 70%;
+}
+.section-dkblue{
+    background-color: var(--dkblue);
+}
+
+
+/* Navbar*/
+nav{
+    font-family: var(--mono);
+    font-size: 80%;
+    padding: 1rem;
+}
+nav h1 a{
+    font-family: var(--sans);
+    
+}
+nav h1{
+    display: block;
+}
+nav [class*="fa-"] {
+    font-size: 150%;
+    color: var(--aqua);
+}
+nav [class*="fa-"]:hover{
+    color: var(--magenta);
+}
+nav h1 [class*="fa-"] {
+    font-size: 100%;
+    color: var(--aqua);
+}
+nav ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+nav li:first-child{
+    flex-basis: 100%;
+    text-align: center;
+}
+nav a{
+    color: var(--white);
+    text-decoration: none;
+    display: block;
+}
+nav a:hover{
+    color: var(--magenta);
+}
+
+input{
+    display: none;
+}
+.container{
+    width: 100%;
+    text-align: center;
+}
+h1{
+    font-weight: normal;
+    font-size: 35px;
+    position: relative;
+    margin: 40px 0;
+}
+h1::before{
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    background-color: crimson;
+    bottom: -10px;
+    left: 50%;
+    transform: translate(-50%);
+    animation: animate 4s linear infinite;
+}
+@keyframes animate{
+    0%{
+        width: 100px;
+    }
+    50%{
+        width: 200px;
+    }
+    100%{
+        width: 100px;
+    }
+}
+.top-content{
+    background-color: rgb(220, 220, 220);
+    width: 90%;
+    margin: 0 auto 20px auto;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px lightgray;
+}
+h3{
+    height: 100%;
+    background-color: lightgray;
+    line-height: 60px;
+    padding: 0 50px;
+    color: white;
+}
+label{
+    display: inline-block;
+    height: 100%;
+    margin: 0 20px;
+    line-height: 60px;
+    font-size: 18px;
+    color: gray;
+    cursor: pointer;
+    transition: .5s;
+}
+label:hover{
+    color: black;
+}
+.photo-gallery{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+.pic{
+    position: relative;
+    height: 210px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px lightgray;
+    cursor: pointer;
+    transition: .5s;
+}
+.pic img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transition: .5s;
+}
+.pic::before{
+    content: "photo gallery";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: -100px;
+    opacity: 0;
+    transition-delay: .2s;
+    z-index: 1;
+}
+.pic:after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border-radius: 10px;
+    height: 0;
+    background-color: rgba(0, 0, 0, .4);
+    transition: .3s;
+}
+.pic:hover::after{
+    height: 100%;
+}
+.pic:hover::before{
+    margin-top: 0;
+    opacity: 1;
+}
+#check1:checked ~ .container .photo-gallery .pic{
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+    transition: .5s;
+}
+#check2:checked ~ .container .photo-gallery .HTMLCSSJavascript{
+    transform: scale(1);
+    opacity: 1;
+    position: relative;
+    
+}
+#check2:checked ~ .container .photo-gallery .angular,
+#check2:checked ~ .container .photo-gallery .Flutter,
+#check2:checked ~ .container .photo-gallery .React,
+#check2:checked ~ .container .photo-gallery .PHP,
+#check2:checked ~ .container .photo-gallery .Bootstrap{
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+    transition: 0s;
+}
+
+
+
+#check3:checked ~ .container .photo-gallery .PHP{
+    transform: scale(1);
+    opacity: 1;
+    position: relative;
+    
+}
+#check3:checked ~ .container .photo-gallery .Bootstrap,
+#check3:checked ~ .container .photo-gallery .Flutter,
+#check3:checked ~ .container .photo-gallery .React,
+#check3:checked ~ .container .photo-gallery .angular,
+#check3:checked ~ .container .photo-gallery .HTMLCSSJavascript{
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+    transition: 0s;
+}
+#check4:checked ~ .container .photo-gallery .React{
+    transform: scale(1);
+    opacity: 1;
+    position: relative;
+    
+}
+#check4:checked ~ .container .photo-gallery .angular,
+#check4:checked ~ .container .photo-gallery .Flutter,
+#check4:checked ~ .container .photo-gallery .Bootstrap,
+#check4:checked ~ .container .photo-gallery .PHP,
+#check4:checked ~ .container .photo-gallery .HTMLCSSJavascript{
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+    transition: 0s;
+}
+#check5:checked ~ .container .photo-gallery .Flutter{
+    transform: scale(1);
+    opacity: 1;
+    position: relative;
+    
+}
+#check5:checked ~ .container .photo-gallery .angular,
+#check5:checked ~ .container .photo-gallery .Bootstrap,
+#check5:checked ~ .container .photo-gallery .React,
+#check5:checked ~ .container .photo-gallery .PHP,
+#check5:checked ~ .container .photo-gallery .HTMLCSSJavascript{
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+    transition: 0s;
+}
+#check6:checked ~ .container .photo-gallery .Bootstrap{
+    transform: scale(1);
+    opacity: 1;
+    position: relative;
+    
+}
+#check6:checked ~ .container .photo-gallery .angular,
+#check6:checked ~ .container .photo-gallery .Flutter,
+#check6:checked ~ .container .photo-gallery .React,
+#check6:checked ~ .container .photo-gallery .PHP,
+#check6:checked ~ .container .photo-gallery .HTMLCSSJavascript{
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+    transition: 0s;
+}
+#check7:checked ~ .container .photo-gallery .angular{
+    transform: scale(1);
+    opacity: 1;
+    position: relative;
+    
+}
+#check7:checked ~ .container .photo-gallery .HTMLCSS .Javascript,
+#check7:checked ~ .container .photo-gallery .Flutter,
+#check7:checked ~ .container .photo-gallery .React,
+#check7:checked ~ .container .photo-gallery .PHP,
+#check7:checked ~ .container .photo-gallery .Bootstrap{
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+    transition: 0s;
+}
